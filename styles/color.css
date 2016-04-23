@@ -1,0 +1,39 @@
+@CHARSET "UTF-8";
+
+body {
+	background: rgb(224, 225, 230);
+}
+
+.breadcrumbTab {
+	color: white;
+}
+.nav-list:hover {
+	color: rgb(253,95,70);
+}
+li .active{
+	color: rgb(253,95,70);
+}
+.content-list {
+	background-color: white;
+}
+.content-list article i {
+	color: rgb(63, 64, 20);
+}
+.breadcrumbTab a {
+	color: white;
+}
+.viewIcon img{
+	background: gray;
+}
+.viewIcon img:hover{
+	background: rgb(253,95,70);
+}
+.likeIcon img{
+	background: gray;
+}
+.likeIcon img:hover{
+	background: rgb(253,95,70);
+}
+footer {
+	background: rgb(253,95,70);
+}

@@ -1,0 +1,141 @@
+@CHARSET "UTF-8";
+
+article,aside,dialog,footer,header,section,footer,nav,figure,menu{display:block}
+/* ----------------------- html css ------------------------- */
+* {
+	margin:0px;
+	padding:0px;
+	text-align:center;
+}
+html,body {
+	width:100%;
+	height:100%;
+}
+/* ----------------------- nav CSS -------------------------------- */
+nav ul {
+	width: 60%;
+	margin: 0em auto;
+	min-width: 60em;
+	position: relative;
+	left: 0em;
+	/*border-bottom: solid 1px rgba(253,95,70,1);*/
+	padding-top: 30px;
+	padding-bottom: 15px;
+}
+
+nav ul li {
+	float: left;
+/*	display: inline-block;*/
+	width: 25%;
+	/*border: solid 1px red;*/
+}
+.nav-arrow {
+	width:0;
+	height:0;
+	position: absolute;
+	left: 11.6%;
+	top: 0em;
+}
+/* ----------------------- bodyer CSS -------------------------------- */
+#bodyer {
+	width: 60%;
+	margin: 1em auto;
+	min-width: 60em;
+	min-height: 90em;
+	position: relative;
+	left: 0em;
+}
+/*.content-list article {
+	height: auto;
+	border: dashed 1px red;
+}
+.content-list article p{
+	height: auto;
+	border: dashed 1px blue;
+}*/
+.breadcrumb {
+	width: 90px;
+	height: 90px;
+	position: absolute;
+	left: 1em;
+	top: -0.3em;
+	padding: 0em;
+}
+.breadcrumbTab {
+	width: 70px;
+	position: absolute;
+	left: 1em;
+	padding-top: 1em;
+}
+.content-list {
+	padding: 5em 4em 0em 4em;
+}
+.content-list article {
+	text-align: left;
+	min-height: 20em;
+}
+.content-info {
+	width: 70%;
+	height: auto;
+	text-align: left;
+}
+.content-list article i {
+	/*border: solid 1px red;*/
+}
+.content-list h2 {
+	/*border: solid 1px red;*/
+	padding-top: 1em;
+	padding-bottom: 0.5em;
+	text-align: left;
+}
+.content-list p {
+	padding-top: 1em;
+	padding-bottom: 1em;
+	text-align: left;
+
+}
+.viewIcon {
+	display: inline-block;
+	height: 1.3em;
+	width: 1.3em;
+	margin-left: 50%;
+}
+.viewIcon img{
+	background: gray;
+	height: 70%;
+	width: 100%;
+}
+.likeIcon {
+	position: relative;
+	display: inline-block;
+	height: 1.2em;
+	width: 1.2em;
+	margin-left: 1em;
+}
+.likeIcon img{
+	background: gray;
+	height: 90%;
+	width: 100%;
+}
+.content-img {
+	padding-top: 3em;
+	margin-left: 3em;
+	float: right;
+
+}
+/* ----------------------- footer CSS -------------------------------- */
+footer {
+	width: 100%;
+	height: 15em;
+}
+
+/* ----------------------- aside CSS -------------------------------- */
+aside {
+	width: 10%;
+	height: 15em;
+	background: red;
+}
+/* ----------------------- clear CSS -------------------------------- */
+.clear {
+	clear: both;
+}

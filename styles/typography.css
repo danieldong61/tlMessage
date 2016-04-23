@@ -1,0 +1,61 @@
+@CHARSET "UTF-8";
+
+/* ----------------------- global CSS -------------------------------- */
+body {
+
+}
+a {
+	text-decoration: none;
+}
+html {
+
+}
+/* ----------------------- nav CSS -------------------------------- */
+nav ul {
+	border-top: solid 5px rgb(253,95,70);
+	/*border-top: solid 5px red;*/
+}
+nav li {
+	list-style: none;
+}
+nav li a {
+	font-family: Helvetica, 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', Arial, sans-serif;
+	font-size: 120%;
+	color: rgba(62,62,62,1);
+}
+.nav-arrow {
+	border-left: 8px solid transparent;
+	border-right: 8px solid transparent;
+	border-top: 8px solid rgb(253,95,70);
+}
+
+/* ----------------------- content CSS -------------------------------- */
+#bodyer {
+	background: rgba(255,255,255,1);
+	-webkit-box-shadow: 0 0 8px 1px rgba(192, 193, 198, 0.7);
+	-moz-box-shadow: 0 0 8px 1px rgba(192, 193, 198, 0.7);
+	box-shadow: 0 0 8px 1px rgba(192, 193, 198, 0.7);
+	/*filter: progid:DXImageTransform.Microsoft.Shadow(color=’#c0c1c6′, Direction=-520, Strength=2);/!*for ie6,7,8*!/*/
+    /*filter:Shadow(Color=’#c0c1c6′, Direction=135);/!*for ie6,7,8*!/*/
+}
+.content-list h2,p {
+	text-align: left;
+}
+article>h2:hover {
+	color: #305cd1;
+	cursor: pointer;
+}
+.content-list p {
+	line-height: 35px;
+}
+.hide {
+	display: none;
+}
+.display {
+	display: block;
+}
+.aboutme {
+	filter:alpha(opacity=50); /*IE滤镜，透明度50%*/
+	-moz-opacity:0.5; /*Firefox私有，透明度50%*/
+	opacity:0.5;/*其他，透明度50%*/
+}
