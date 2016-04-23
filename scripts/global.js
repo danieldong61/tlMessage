@@ -465,6 +465,16 @@ function callIE(){
 		$(".breadcrumbTab").css("left","1.5em");
 	}
 }
+function startLoad(){
+	$.ajax({
+		url: "getArticles.php",
+		type: "post",
+		data: {pageId:"1"},
+		success: function(data){
+			alert(data);
+		}
+	});
+}
 $(function(){
 /*	initMap();  //�����ͳ�ʼ����ͼ
 	prepareForeground();
@@ -473,6 +483,7 @@ $(function(){
 	/*tlMenu();
 	tlTab();
 	tlLeftarm();*/
+	startLoad();
 	callIE();
 	createBreadcrumb();
 	navarrowMove();
