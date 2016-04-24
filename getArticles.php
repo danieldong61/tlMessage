@@ -1,9 +1,7 @@
 <?php
-$pageId =$_Get['pageId'];
-if($pageId == 1) {
-    echo "3";
-/*    @ $db = new mysqli('localhost', 'dfr3602dzq', 'C72p?H~xy6A[', 'articles');
-
+$backValue=$_POST['pageId'];
+if($backValue == 1){
+    @ $db = new mysqli('localhost','root','', 'articles');
     $db->query("SET NAMES 'utf8'");
     if (mysqli_connect_errno()) {
         echo 'Error: Could not connect to database.  Please try again later.';
@@ -15,11 +13,11 @@ if($pageId == 1) {
 
     $num_results = $result->num_rows;
 
-    echo "<p>Number of books found: " . $num_results . "</p>";
+//    echo "<p>Number of books found: ".$num_results."</p>";
 
-    for ($i = 0; $i < $num_results; $i++) {
+    for ($i=0; $i <$num_results; $i++) {
         $row = $result->fetch_assoc();
-        echo "<p><strong>" . ($i + 1) . ". articleid: ";
+/*        echo "<p><strong>".($i+1).". articleid: ";
         echo htmlspecialchars(stripslashes($row['articleid']));
         echo "</strong><br />content: ";
         echo stripslashes($row['content']);
@@ -31,11 +29,14 @@ if($pageId == 1) {
         echo $row['title'];
         echo "<br />views: ";
         echo stripslashes($row['views']);
-        echo "</p>";
+        echo "</p>";*/
+        echo json_encode(array($row));
     }
+
     $result->free();
-    $db->close();*/
+    $db->close();
+}else{
+    echo "none";
 }
 ?>
-
 

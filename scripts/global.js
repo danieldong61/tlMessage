@@ -468,9 +468,17 @@ function callIE(){
 function startLoad(){
 	$.ajax({
 		url: "getArticles.php",
-		type: "post",
-		data: {pageId:"1"},
-		success: function(data){
+		type: "POST",
+		data:{pageId:"1"},
+	/*	dataType: "xml",*/
+		error: function(){
+			alert('Error loading XML document');
+		},
+		success: function(data){//如果调用php成功
+			/*for(var i=0;i<2;i++){
+				alert ( data.articleid);
+			}*/
+			
 			alert(data);
 		}
 	});
