@@ -13,26 +13,11 @@ if($backValue == 1){
 
     $num_results = $result->num_rows;
 
-//    echo "<p>Number of books found: ".$num_results."</p>";
-
     for ($i=0; $i <$num_results; $i++) {
         $row = $result->fetch_assoc();
-/*        echo "<p><strong>".($i+1).". articleid: ";
-        echo htmlspecialchars(stripslashes($row['articleid']));
-        echo "</strong><br />content: ";
-        echo stripslashes($row['content']);
-        echo "<br />date: ";
-        echo stripslashes($row['date']);
-        echo "<br />likes: ";
-        echo stripslashes($row['likes']);
-        echo "<br />title: ";
-        echo $row['title'];
-        echo "<br />views: ";
-        echo stripslashes($row['views']);
-        echo "</p>";*/
-        echo json_encode(array($row));
+        $list[$i]=array("articelid"=>$row['articleid'],"likes"=>$row['likes'],"content"=>$row['content'],"views"=>$row['views'],"date"=>$row['date'],"title"=>$row['title']);
     }
-
+    echo json_encode($list);
     $result->free();
     $db->close();
 }else{

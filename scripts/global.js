@@ -470,21 +470,23 @@ function startLoad(){
 		url: "getArticles.php",
 		type: "POST",
 		data:{pageId:"1"},
-	/*	dataType: "xml",*/
-		error: function(){
+		//dataType: "json",
+	/*	error: function(){
 			alert('Error loading XML document');
-		},
+		},*/
 		success: function(data){//如果调用php成功
-			/*for(var i=0;i<2;i++){
-				alert ( data.articleid);
-			}*/
-			
-			alert(data);
+			var test = eval('('+data+')');
+			for(var i =0;i<10;i++){
+				$('article:eq('+i+') h2').html(test[i]['title']);
+				$('article:eq('+i+') p').html(test[i]['content']);
+			}
+
+			/*alert(data);*/
 		}
 	});
 }
 $(function(){
-/*	initMap();  //�����ͳ�ʼ����ͼ
+/*	initMap();  //�����ͳ
 	prepareForeground();
 	prepareWindow();
 	prepareBody1();*/
