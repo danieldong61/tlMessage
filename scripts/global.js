@@ -465,6 +465,8 @@ function callIE(){
 		$(".breadcrumbTab").css("left","1.5em");
 	}
 }
+var global_pageId = 1;
+var current_pageNo = 1;
 function startLoad(){
 	$.ajax({
 		url: "getArticles.php",
@@ -476,15 +478,30 @@ function startLoad(){
 		},*/
 		success: function(data){//如果调用php成功
 			var test = eval('('+data+')');
-			for(var i =0;i<10;i++){
-				$('article:eq('+i+') h2').html(test[i]['title']);
-				$('article:eq('+i+') p').html(test[i]['content']);
+			for(var i=0;i<test[0];i++) {
+				$('#pageNO').append('<span></span>');
+				$('#pageNO span:eq('+i+')').html(i+1);
 			}
-
-			/*alert(data);*/
+			for(var i =0;i<10;i++){
+				$('article:eq('+i+') h2').html(test[(i+1)]['title']);
+				$('article:eq('+i+') p').html(test[(i+1)]['content']);
+				$('article:eq('+i+') i').html(test[(i+1)]['date']);
+			}
+			global_pageId = 1;
+			current_pageNo = 1;
 		}
 	});
 }
+function pageScroll(){
+	$('#pageNO span').live('click',function(){
+		var pageIndex = $('#pageNO span').index(this)+1;
+		if(pageIndex == current_pageNo) {/*nothing*/}
+		else{
+
+		}
+	})
+}
+
 $(function(){
 /*	initMap();  //�����ͳ
 	prepareForeground();
@@ -498,6 +515,7 @@ $(function(){
 	createBreadcrumb();
 	navarrowMove();
 	likeiconMove();
+	pageScroll();
 	/*titleclickMove();*/
 })
 

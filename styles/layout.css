@@ -121,6 +121,18 @@ nav ul li {
 	padding-top: 3em;
 	margin-left: 3em;
 	float: right;
+}
+#pageNO {
+	/*width: 30%;*/
+	padding-bottom: 2em;
+}
+/*#pageNO span:last-child {
+	border: solid 1px red;
+}*/
+#pageNO span{
+	/*width: 30%;*/
+	padding-left: 1.5em;
+	padding-right: 1.5em;
 
 }
 /* ----------------------- footer CSS -------------------------------- */
