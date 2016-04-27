@@ -131,9 +131,12 @@ nav ul li {
 }*/
 #pageNO span{
 	/*width: 30%;*/
-	padding-left: 1.5em;
-	padding-right: 1.5em;
-
+	margin-left: 1.5em;
+	margin-right: 1.5em;
+}
+#pageNO span:hover{
+	/*width: 30%;*/
+	cursor: pointer;
 }
 /* ----------------------- footer CSS -------------------------------- */
 footer {

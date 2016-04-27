@@ -471,7 +471,7 @@ function startLoad(){
 	$.ajax({
 		url: "getArticles.php",
 		type: "POST",
-		data:{pageId:"1"},
+		data:{pageId: "start", pageNo: current_pageNo},
 		//dataType: "json",
 	/*	error: function(){
 			alert('Error loading XML document');
@@ -494,10 +494,26 @@ function startLoad(){
 }
 function pageScroll(){
 	$('#pageNO span').live('click',function(){
-		var pageIndex = $('#pageNO span').index(this)+1;
-		if(pageIndex == current_pageNo) {/*nothing*/}
+		var pageNo = $('#pageNO span').index(this)+1;
+		if(pageNo == current_pageNo) {/*nothing*/}
 		else{
-
+			$('.arcicles article').css("display","none");
+			current_pageNo = pageNo
+			$.ajax({
+				url: "getArticles.php",
+				type: "POST",
+				data:{pageId: global_pageId, pageNo: current_pageNo},
+				success: function(data){
+					var test = eval('('+data+')');
+					alert(test[0]);
+					for(var i =0;i<test[0];i++){
+						$('.arcicles article:eq('+i+')').css("display","block");
+						$('article:eq('+i+') h2').html(test[(i+1)]['title']);
+						$('article:eq('+i+') p').html(test[(i+1)]['content']);
+						$('article:eq('+i+') i').html(test[(i+1)]['date']);
+					}
+				}
+			})
 		}
 	})
 }
