@@ -415,11 +415,17 @@ function navarrowMove(){
 				navarrowDiv.animate({left: "36.6%"}, 200);
 				navarrowPosition = 1;
 				$(".breadcrumbTab a").text("互联网");
+				$(".arcicles").removeClass("hide");
+				$(".aboutme").addClass("hide");
+				updateArticlelist("internet");
 			}
 			else if(listIndex == 2){
 				navarrowDiv.animate({left: "61.6%"}, 200);
 				navarrowPosition = 2;
 				$(".breadcrumbTab a").text("智慧");
+				$(".arcicles").removeClass("hide");
+				$(".aboutme").addClass("hide");
+				updateArticlelist("intelligent");
 			}
 			else if(listIndex == 3){
 				navarrowDiv.animate({left: "86.6%"}, 200);
@@ -471,7 +477,7 @@ function startLoad(){
 	$.ajax({
 		url: "getArticles.php",
 		type: "POST",
-		data:{pageId: "start", pageNo: current_pageNo},
+		data:{pageId: "all", pageNo: current_pageNo},
 		//dataType: "json",
 	/*	error: function(){
 			alert('Error loading XML document');
@@ -486,6 +492,42 @@ function startLoad(){
 				$('article:eq('+i+') h2').html(test[(i+1)]['title']);
 				$('article:eq('+i+') p').html(test[(i+1)]['content']);
 				$('article:eq('+i+') i').html(test[(i+1)]['date']);
+				$('article:eq('+i+') .likenumber').html(test[(i+1)]['likes']);
+				$('article:eq('+i+') .viewnumber').html(test[(i+1)]['views']);
+			}
+			global_pageId = 1;
+			current_pageNo = 1;
+		}
+	});
+}
+function updateArticlelist(pageId){
+	$('.arcicles article').css("display","none");
+	$.ajax({
+		url: "getArticles.php",
+		type: "POST",
+		data:{pageId: pageId, pageNo: current_pageNo},
+		//dataType: "json",
+		/*	error: function(){
+		 alert('Error loading XML document');
+		 },*/
+		success: function(data){//如果调用php成功
+
+			var test = eval('('+data+')');
+			var pageNumber;
+			if(test[0]%10 == 0) pageNumber =test[0]/10;
+			else pageNumber =test[0]/10;+1;
+			$('#pageNO span').remove();
+			for(var i=0;i<pageNumber;i++) {
+				$('#pageNO').append('<span></span>');
+				$('#pageNO span:eq('+i+')').html(i+1);
+			}
+			for(var i =0;i<test[0];i++){
+				$('.arcicles article:eq('+i+')').css("display","block");
+				$('article:eq('+i+') h2').html(test[(i+1)]['title']);
+				$('article:eq('+i+') p').html(test[(i+1)]['content']);
+				$('article:eq('+i+') i').html(test[(i+1)]['date']);
+				$('article:eq('+i+') .likenumber').html(test[(i+1)]['likes']);
+				$('article:eq('+i+') .viewnumber').html(test[(i+1)]['views']);
 			}
 			global_pageId = 1;
 			current_pageNo = 1;
@@ -493,6 +535,7 @@ function startLoad(){
 	});
 }
 function pageScroll(){
+
 	$('#pageNO span').live('click',function(){
 		var pageNo = $('#pageNO span').index(this)+1;
 		if(pageNo == current_pageNo) {/*nothing*/}
@@ -505,12 +548,13 @@ function pageScroll(){
 				data:{pageId: global_pageId, pageNo: current_pageNo},
 				success: function(data){
 					var test = eval('('+data+')');
-					alert(test[0]);
 					for(var i =0;i<test[0];i++){
 						$('.arcicles article:eq('+i+')').css("display","block");
 						$('article:eq('+i+') h2').html(test[(i+1)]['title']);
 						$('article:eq('+i+') p').html(test[(i+1)]['content']);
 						$('article:eq('+i+') i').html(test[(i+1)]['date']);
+						$('article:eq('+i+') .likenumber').html(test[(i+1)]['likes']);
+						$('article:eq('+i+') .viewnumber').html(test[(i+1)]['views']);
 					}
 				}
 			})

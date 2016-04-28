@@ -1,7 +1,7 @@
 <?php
 $pageId=$_POST['pageId'];
 $pageNo=$_POST['pageNo'];
-if($pageId == "start"){
+if($pageId == "all"){
         @ $db = new mysqli('localhost','root','', 'articles');
         $db->query("SET NAMES 'utf8'");
         if (mysqli_connect_errno()) {
@@ -47,6 +47,44 @@ if($pageId == "start"){
     //互联网
 }else if($pageId == 3){
     //智能
+}else if($pageId == "internet"){
+    @ $db = new mysqli('localhost','root','', 'articles');
+    $db->query("SET NAMES 'utf8'");
+    if (mysqli_connect_errno()) {
+        echo 'Error: Could not connect to database.  Please try again later.';
+        exit;
+    }
+    $query = "select * from article where category = 'internet' order by date asc";
+    $result = $db->query($query);
+
+    $num_results = $result->num_rows;
+    $list[0] = $num_results;
+    for ($i=0; $i < $num_results; $i++) {
+        $row = $result->fetch_assoc();
+        $list[($i+1)]=array("articelid"=>$row['articleid'],"likes"=>$row['likes'],"content"=>$row['content'],"views"=>$row['views'],"date"=>$row['date'],"title"=>$row['title']);
+    }
+    echo json_encode($list);
+    $result->free();
+    $db->close();
+}else if($pageId == "intelligent"){
+    @ $db = new mysqli('localhost','root','', 'articles');
+    $db->query("SET NAMES 'utf8'");
+    if (mysqli_connect_errno()) {
+        echo 'Error: Could not connect to database.  Please try again later.';
+        exit;
+    }
+    $query = "select * from article where category = 'intelligent' order by date asc";
+    $result = $db->query($query);
+
+    $num_results = $result->num_rows;
+    $list[0] = $num_results;
+    for ($i=0; $i < $num_results; $i++) {
+        $row = $result->fetch_assoc();
+        $list[($i+1)]=array("articelid"=>$row['articleid'],"likes"=>$row['likes'],"content"=>$row['content'],"views"=>$row['views'],"date"=>$row['date'],"title"=>$row['title']);
+    }
+    echo json_encode($list);
+    $result->free();
+    $db->close();
 }
 ?>
 
