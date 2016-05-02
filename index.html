@@ -5,11 +5,10 @@
 <title>科技 互联网 智能</title>
 <link rel="stylesheet" type="text/css" href="styles/basic.css" />
 <link rel="icon" href="images/brand.png" type="image/x-icon"/>  <!-- 标题栏图标 -->
-	<!--[if lt IE 9]><script src="http://cdn.bootcss.com/html5shiv/3.7/html5shiv.js"></script><![endif]-->
-
-	<!--[if lte IE 8]><script src="http://cdn.bootcss.com/selectivizr/1.0.2/selectivizr.js"></script><![endif]-->
-	<script type="text/javascript" src="scripts/excanvas.js"></script>
-	<script type="text/javascript" src="scripts/global.js"></script>
+<!--[if lt IE 9]><script src="http://cdn.bootcss.com/html5shiv/3.7/html5shiv.js"></script><![endif]-->
+<!--[if lte IE 8]><script src="http://cdn.bootcss.com/selectivizr/1.0.2/selectivizr.js"></script><![endif]-->
+<script type="text/javascript" src="scripts/excanvas.js"></script>
+<script type="text/javascript" src="scripts/global.js"></script>
 </head> <!-- head结束  -->
 
 <body>  <!-- body结束  -->
@@ -20,20 +19,21 @@
 				<li><a class="nav-list active" href="#">全部</a></li>
 				<li><a class="nav-list" href="#">互联网</a></li>
 				<li><a class="nav-list" href="#">智能</a></li>
-				<li><a class="nav-list" href="#">关于我</a></li>
+				<li><a class="nav-list" href="#">统计</a></li>
 				<div class="clear"></div>
 			</ul>
 		</nav>
 	</header>
 
 
-<div id="bodyer">
+<div id="bodyer" class="ease_in_out">
+	<div id="rotate">
 	<canvas class="breadcrumb"></canvas>
 	<div class="breadcrumbTab"><a href="#">全部</a></div>
 	<div class="content-list">
 		<div class ="arcicles">
 			<article>
-			<img class = "content-img" src="images/case1.jpg">
+			<img class = "content-img" src="">
 			<h2></h2>
 			<div class="content-info">
 				<i></i> <span class="viewIcon"><img src="images/view_1.png"></span><small class="viewnumber">23</small> <span class="likeIcon"><img src="images/thumb_1.png"></span><small class="likenumber">23</small>
@@ -41,7 +41,7 @@
 			<p> </p>
 		    </article>
 			<article>
-				<img class = "content-img" src="images/case3.jpg">
+				<img class = "content-img" src="">
 				<h2> </h2>
 				<div class="content-info">
 					<i></i> <span class="viewIcon"><img src="images/view_1.png"></span><small class="viewnumber">23</small> <span class="likeIcon"><img src="images/thumb_1.png"></span><small class="likenumber">23</small>
@@ -57,7 +57,7 @@
 				<p> </p>
 			</article>
 			<article>
-				<img class = "content-img" src="images/case4.jpg">
+				<img class = "content-img" src="">
 				<h2> </h2>
 				<div class="content-info">
 					<i></i> <span class="viewIcon"><img src="images/view_1.png"></span><small class="viewnumber">23</small> <span class="likeIcon"><img src="images/thumb_1.png"></span><small class="likenumber">23</small>
@@ -65,7 +65,7 @@
 				<p>	</p>
 			</article>
 			<article>
-				<img class = "content-img" src="images/case1.jpg">
+				<img class = "content-img" src="">
 				<h2> </h2>
 				<div class="content-info">
 					<i></i> <span class="viewIcon"><img src="images/view_1.png"></span><small class="viewnumber">23</small> <span class="likeIcon"><img src="images/thumb_1.png"></span><small class="likenumber">23</small>
@@ -73,7 +73,7 @@
 				<p> </p>
 			</article>
 			<article>
-				<img class = "content-img" src="images/case3.jpg">
+				<img class = "content-img" src="">
 				<h2> </h2>
 				<div class="content-info">
 					<i></i> <span class="viewIcon"><img src="images/view_1.png"></span><small class="viewnumber">23</small> <span class="likeIcon"><img src="images/thumb_1.png"></span><small class="likenumber">23</small>
@@ -89,7 +89,7 @@
 				<p> </p>
 			</article>
 			<article>
-				<img class = "content-img" src="images/case4.jpg">
+				<img class = "content-img" src="">
 				<h2> </h2>
 				<div class="content-info">
 					<i></i> <span class="viewIcon"><img src="images/view_1.png"></span><small class="viewnumber">23</small> <span class="likeIcon"><img src="images/thumb_1.png"></span><small class="likenumber">23</small>
@@ -105,7 +105,7 @@
 				<p> </p>
 			</article>
 			<article>
-				<img class = "content-img" src="images/case4.jpg">
+				<img class = "content-img" src="">
 				<h2> </h2>
 				<div class="content-info">
 					<i></i> <span class="viewIcon"><img src="images/view_1.png"></span><small class="viewnumber">23</small> <span class="likeIcon"><img src="images/thumb_1.png"></span><small class="likenumber">23</small>
@@ -114,16 +114,15 @@
 			</article>
 			<div id="pageNO"></div>
 		</div>
-		<div class="aboutme hide">
-			<h2>个人信息</h2>
-			<span><p>daniel dong</p></span><span><p>1985年12月</p></span><span><p>手机：00000000000</p></span><span><p>QQ：214877908</p></span><span><p>邮箱：dfr3602@163.com</p></span>
+		<div class="statistics hide">
+			<canvas id="tutorial" width="700" height="400"></canvas>
 		</div>
 	</div>
-
+	</div>
 </div>
 
 <footer>
-
+<span>联系我们</span><span>关于我们</span><span>意见反馈</span>
 </footer>
 <script type="text/javascript" src="scripts/jquery.js"></script>
 <script type="text/javascript" src="scripts/global.js"></script>
