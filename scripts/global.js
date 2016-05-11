@@ -595,7 +595,99 @@ function draw(){
 	ctx.fill();
 	ctx.stroke();
 }
+function canvasMouseon(){
+	var circle = {centerX:300,centerY:200,radio:150};
+	var drawPercentage =[20,30,15,30,5];
+	var drawColor =["red","blue","green","yellow","purple"];
+	var ctx = $("#tutorial")[0].getContext("2d");
+	var startAngle = 0;
+	for(var i =0; i<drawPercentage.length;i++){
+		ctx.beginPath();
+		ctx.fillStyle =drawColor[i];
+		ctx.strokeStyle = drawColor[i];
+		ctx.moveTo(circle.centerX,circle.centerY);
+		ctx.arc(circle.centerX,circle.centerY,circle.radio,startAngle,startAngle-Math.PI*2*drawPercentage[i]/100,true);
+		ctx.fill();
+		ctx.stroke();
+		startAngle -= Math.PI*2*drawPercentage[i]/100;
+	}
 
+	$("#tutorial").mousemove(function(e){
+		var data = [20,30,15,30,5];   /*扇形的角度百分比，5组加起来正好是100*/
+		var angle=new Array(5);  /*扇形的始末角度*/
+		var sum=0;
+		for (var i=0;i<data.length ;i++ )
+		{
+			angle[i]=new Array(2);
+			angle[i][0]=sum;
+			sum+=data[i]/100;
+			angle[i][1]=sum;
+		}
+		var x1 = $(this).position().left;
+		var x2 = e.pageX;
+		var x = x2 - x1;
+		var y1 = $(this).position().top;
+		var y2 = e.pageY;
+		var y = y2 - y1;
+		var tempX = x-300;
+		var tempY = y-200;
+		if (((tempX*tempX)+(tempY*tempY))>150*150){
+			return -1;
+		}
+		var ap=Math.atan2(tempY,tempX);
+		if (ap<0)
+		{
+			ap+=Math.PI*2;
+		}
+		for (var i=0;i<angle.length ;i++ )
+		{
+			if (((ap/Math.PI/2)>=angle[i][0])&&((ap/Math.PI/2)<=angle[i][1]))
+			{
+				$(".test p").html(i);
+				ctx.clearRect(0,0,700,400);
+				ctx.beginPath();
+				ctx.fillStyle ="red";
+				ctx.strokeStyle = "red";
+				ctx.moveTo(300,200);
+				ctx.arc(300,200,150,0,-Math.PI/10,true);
+				ctx.fill();
+				ctx.stroke();
+
+				ctx.beginPath();
+				ctx.fillStyle ="blue";
+				ctx.strokeStyle = "blue";
+				ctx.moveTo(300,200);
+				ctx.arc(300,200,150, -Math.PI/10, -Math.PI*7/10,true);
+				ctx.fill();
+				ctx.stroke();
+
+				ctx.beginPath();
+				ctx.fillStyle ="green";
+				ctx.strokeStyle = "green";
+				ctx.moveTo(285,191);
+				ctx.arc(285,191,150, -Math.PI*7/10, -Math.PI*10/10,true);
+				ctx.fill();
+				ctx.stroke();
+
+				ctx.beginPath();
+				ctx.fillStyle ="yellow";
+				ctx.strokeStyle = "yellow";
+				ctx.moveTo(300,200);
+				ctx.arc(300,200,150, -Math.PI*10/10, -Math.PI*16/10,true);
+				ctx.fill();
+				ctx.stroke();
+
+				ctx.beginPath();
+				ctx.fillStyle ="purple";
+				ctx.strokeStyle = "purple";
+				ctx.moveTo(300,200);
+				ctx.arc(300,200,150, -Math.PI*16/10, -Math.PI*20/10,true);
+				ctx.fill();
+				ctx.stroke();
+			}
+		}
+	})
+}
 $(function(){
 /*	initMap();  //�����ͳ
 	prepareForeground();
@@ -606,7 +698,8 @@ $(function(){
 	tlLeftarm();*/
 	/*	likeiconMove();*/
 	/*titleclickMove();*/
-	draw();
+	canvasMouseon();
+
 	showArticle();
 	startLoadarticles();
 	callIE();

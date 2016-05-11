@@ -1,0 +1,14 @@
+webstrom系统文件：
+.idea
+
+Github文件：
+.gitattributes
+.gitignore
+
+项目文件：
+fonts
+images
+scripts
+styles
+index
+readme
